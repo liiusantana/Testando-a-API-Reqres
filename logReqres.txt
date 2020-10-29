@@ -1,0 +1,172 @@
+//Ver a versão no Node
+C:\Users\t058442>node -v
+v12.19.0
+
+//Para instalar o newmand
+C:\Users\t058442>npm install -g newman
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+C:\Users\t058442\AppData\Roaming\npm\newman -> C:\Users\t058442\AppData\Roaming\npm\node_modules\newman\bin\newman.js
++ newman@5.2.0
+added 158 packages from 198 contributors in 94.094s
+
+//Verificar a versão do Newman
+C:\Users\t058442>newman -v
+5.2.0
+
+//Instalar o Newman reporter-html
+C:\Users\t058442>npm install -g newman-reporter-html
+npm WARN newman-reporter-html@1.0.5 requires a peer of newman@4 but none is installed. You must install peer dependencies yourself.
+
++ newman-reporter-html@1.0.5
+added 12 packages from 44 contributors in 9.383s
+
+//Executando os testes
+C:\Users\t058442>newman run C:\Users\t058442\Documents\Pessoal\Curso_Postman_Udemy\API_Reqres.postman_collection.json -e C:\Users\t058442\Documents\Pessoal\Curso_Postman_Udemy\Reqres.postman_environment.json
+newman
+
+API Reqres
+
+□ Recurso_Usuários / Criar Usuários
+└ Cria_Usuarios
+  ┌
+  │ 'Cria_Usuarios'
+  │ 'Cria_Usuarios'
+  └
+  POST https://reqres.in/api/users [201 Created, 1006B, 1179ms]
+  √  Response time is less than 200ms
+
+└ Criar_Usuários_Data
+  ┌
+  │ 'Criar_Usuários_Data'
+  └
+  POST https://reqres.in/api/users [201 Created, 851B, 439ms]
+  √  Response time is less than 200ms
+
+□ Recurso_Usuários / Buscar Usuários
+└ Busca_Usuarios
+  ┌
+  │ 'Busca_Usuarios'
+  └
+  GET https://reqres.in/api/users?page=2 [200 OK, 2.04KB, 63ms]
+  √  Response time is less than 200ms
+  ┌
+  │ 'Successful GET request'
+  └
+  √  Successful GET request
+
+└ Busca_Usuario_Especifico
+  ┌
+  │ 'Busca_Usuario_Especifico'
+  └
+  GET https://reqres.in/api/users/5 [200 OK, 1.18KB, 441ms]
+  √  Response time is less than 200ms
+
+└ Buscar_Usuário_Path
+  ┌
+  │ 'Buscar_Usuário_Path'
+  └
+  GET https://reqres.in/api/users/7 [200 OK, 1.18KB, 445ms]
+  √  Response time is less than 200ms
+
+└ Busca_Sem_Sucesso
+  ┌
+  │ 'Busca_Sem_Sucesso'
+  └
+  GET https://reqres.in/api/users/74855 [404 Not Found, 814B, 448ms]
+  √  Response time is less than 200ms
+  ┌
+  │ 'Usuário não encontrado'
+  └
+  √  Successful GET request
+
+□ Recurso_Usuários / Atualizar Usuário
+└ Atualizar_Usuario_Put
+  ┌
+  │ 'Atualizar_Usuario_Put'
+  └
+  PUT https://reqres.in/api/users/5 [200 OK, 822B, 442ms]
+  √  Response time is less than 200ms
+
+└ Atualizar_Usuario_Patch
+  ┌
+  │ 'Atualizar_Usuario_Patch'
+  └
+  PATCH https://reqres.in/api/users/5 [200 OK, 861B, 447ms]
+  √  Response time is less than 200ms
+
+□ Recurso_Usuários / Deletar Usuários
+└ Deletar_Usuario
+  ┌
+  │ 'Deletar_Usuario'
+  └
+  DELETE https://reqres.in/api/users/1 [204 No Content, 712B, 438ms]
+  √  Response time is less than 200ms
+
+┌─────────────────────────┬─────────────────────┬────────────────────┐
+│                         │            executed │             failed │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              iterations │                   1 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│                requests │                   9 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│            test-scripts │                  25 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│      prerequest-scripts │                  27 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              assertions │                  11 │                  0 │
+├─────────────────────────┴─────────────────────┴────────────────────┤
+│ total run duration: 4.9s                                           │
+├────────────────────────────────────────────────────────────────────┤
+│ total data received: 2.25KB (approx)                               │
+├────────────────────────────────────────────────────────────────────┤
+│ average response time: 482ms [min: 63ms, max: 1179ms, s.d.: 273ms] │
+└────────────────────────────────────────────────────────────────────┘
+
+//Ajuda
+C:\Users\t058442\Documents\Pessoal\Curso_Postman_Udemy>newman run -h
+Usage: newman run <collection> [options]
+
+Initiate a Postman Collection run from a given URL or path
+
+Options:
+  -e, --environment <path>              Specify a URL or path to a Postman Environment
+  -g, --globals <path>                  Specify a URL or path to a file containing Postman Globals
+  -r, --reporters [reporters]           Specify the reporters to use for this run (default: ["cli"])
+  -n, --iteration-count <n>             Define the number of iterations to run
+  -d, --iteration-data <path>           Specify a data file to use for iterations (either JSON or CSV)
+  --folder <path>                       Specify the folder to run from a collection. Can be specified multiple times to run multiple folders (default: [])
+  --global-var <value>                  Allows the specification of global variables via the command line, in a key=value format (default: [])
+  --env-var <value>                     Allows the specification of environment variables via the command line, in a key=value format (default: [])
+  --export-environment <path>           Exports the final environment to a file after completing the run
+  --export-globals <path>               Exports the final globals to a file after completing the run
+  --export-collection <path>            Exports the executed collection to a file after completing the run
+  --postman-api-key <apiKey>            API Key used to load the resources from the Postman API
+  --bail [modifiers]                    Specify whether or not to gracefully stop a collection run on encountering an error and whether to end the run with an error based on the optional modifier
+  --ignore-redirects                    Prevents Newman from automatically following 3XX redirect responses
+  -x , --suppress-exit-code             Specify whether or not to override the default exit code for the current run
+  --silent                              Prevents Newman from showing output to CLI
+  --disable-unicode                     Forces Unicode compliant symbols to be replaced by their plain text equivalents
+  --color <value>                       Enable/Disable colored output (auto|on|off) (default: "auto")
+  --delay-request [n]                   Specify the extent of delay between requests (milliseconds) (default: 0)
+  --timeout [n]                         Specify a timeout for collection run (milliseconds) (default: 0)
+  --timeout-request [n]                 Specify a timeout for requests (milliseconds) (default: 0)
+  --timeout-script [n]                  Specify a timeout for scripts (milliseconds) (default: 0)
+  --working-dir <path>                  Specify the path to the working directory
+  --no-insecure-file-read               Prevents reading the files situated outside of the working directory
+  -k, --insecure                        Disables SSL validations
+  --ssl-client-cert-list <path>         Specify the path to a client certificates configurations (JSON)
+  --ssl-client-cert <path>              Specify the path to a client certificate (PEM)
+  --ssl-client-key <path>               Specify the path to a client certificate private key
+  --ssl-client-passphrase <passphrase>  Specify the client certificate passphrase (for protected key)
+  --ssl-extra-ca-certs <path>           Specify additionally trusted CA certificates (PEM)
+  --cookie-jar <path>                   Specify the path to a custom cookie jar (serialized tough-cookie JSON)
+  --export-cookie-jar <path>            Exports the cookie jar to a file after completing the run
+  --verbose                             Show detailed information of collection run and each request sent
+  -h, --help                            display help for command
+
+
+//Geradno relatório
+C:\Users\t058442\Documents\Pessoal\Curso_Postman_Udemy>newman run API_Reqres.postman_collection.json -e Reqres.postman_environment.json -r html
+
+//Gerando relatório usando template
+C:\Users\t058442\Documents\Pessoal\Curso_Postman_Udemy>newman run API_Reqres.postman_collection.json -e Reqres.postman_environment.json --reporters cli,html --reporter-html-template templates/customHtml.hbs --reporter-html-export Export_Reports/export_Reqres.html
