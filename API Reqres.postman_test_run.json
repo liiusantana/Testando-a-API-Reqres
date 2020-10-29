@@ -1,0 +1,53 @@
+{
+	"id": "06658581-6830-42a5-bfbb-cab595cad149",
+	"name": "API Reqres",
+	"timestamp": "2020-10-26T14:34:54.851Z",
+	"collection_id": "ee519a04-d920-4f22-91d7-3030075fe5d3",
+	"folder_id": 0,
+	"environment_id": "cf43c2db-044f-4c17-bc49-82585fff1faa",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "95284b18-bec7-4dbd-a819-52d50386d1ff",
+			"name": "Cria_Usuarios",
+			"url": "https://reqres.in/api/users",
+			"time": 700,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				700
+			],
+			"allTests": [
+				{
+					"Response time is less than 200ms": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 700,
+	"collection": {
+		"requests": [
+			{
+				"id": "95284b18-bec7-4dbd-a819-52d50386d1ff",
+				"method": "POST"
+			},
+			{
+				"id": "6c4c9ea2-ce95-4eca-ae96-cb9afc0a76db",
+				"method": "GET"
+			}
+		]
+	}
+}
