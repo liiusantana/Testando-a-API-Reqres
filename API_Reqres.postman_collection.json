@@ -1,0 +1,1413 @@
+{
+	"info": {
+		"_postman_id": "ee519a04-d920-4f22-91d7-3030075fe5d3",
+		"name": "API Reqres",
+		"description": "Avaliação de nivelamento de conhecimento de API:\r\n\r\nDOCUMENTAÇÃO - https://reqres.in/\r\nURI - https://reqres.in/api/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recurso_Usuários",
+			"item": [
+				{
+					"name": "Criar Usuários",
+					"item": [
+						{
+							"name": "Cria_Usuarios",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ccbd0966-1503-46ff-9928-61f142d8dc2c",
+										"exec": [
+											"pm.variables.set(\"url_base\", \"https://reqres.in/api/\");\r",
+											"\r",
+											"//Pré Script INFO\r",
+											"\r",
+											"console.log(pm.info.requestName)\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Lívia\",\r\n    \"job\": \"QA Analyst I\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}users",
+									"host": [
+										"{{url_base}}users"
+									]
+								},
+								"description": "API Reqres\r\n\r\nRequisição para testar:\r\n- Um parametro local\r\n- Criação de usuários\r\n- Pré Script\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 201\r\n- Tempo de resposta < 2000ms\r\n- Usar a variavél local"
+							},
+							"response": [
+								{
+									"name": "Cria_Usuarios",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Lívia\",\r\n    \"job\": \"QA Analyst\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://reqres.in/api/users",
+											"protocol": "https",
+											"host": [
+												"reqres",
+												"in"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 25 Oct 2020 17:30:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "85"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"55-evY2YUVX1dEtrLeL/EZEH+Z72RQ\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "06026886590000f20ba63a9000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=oeKSb6oOU4aUIX7puGVG3oxpGIuXJ2TShzjQGhMygJLHgWimn4G352iKWbkMXDSMrOtPjxkZVtLocdN4QECRahqaes4g%2FUM5nXs%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e7da9ea2ec5f20b-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"name\": \"Lívia\",\n    \"job\": \"QA Analyst\",\n    \"id\": \"95\",\n    \"createdAt\": \"2020-10-25T17:30:08.670Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Criar_Usuários_Data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "83acb429-5dbf-48ea-9b5f-331f9fa837eb",
+										"exec": [
+											"pm.variables.set(\"url_base\", \"https://reqres.in/api/\");\r",
+											"pm.iterationData.get(\"nome_user\")\r",
+											"pm.iterationData.get(\"job_user\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{nome_user}}\",\r\n    \"job\": \"{{job_user}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}users",
+									"host": [
+										"{{url_base}}users"
+									]
+								},
+								"description": "Requisição para criar usuários usando um arquivo de dados "
+							},
+							"response": []
+						}
+					],
+					"description": "Testes de criação",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "32e6d386-a2f4-41df-b110-e0ade719477f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f72c2eb-f061-4f3d-aaa2-85738da49aa3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Buscar Usuários",
+					"item": [
+						{
+							"name": "Busca_Usuarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5a616f6-82ad-4230-a0cf-9f8c9ac10b44",
+										"exec": [
+											"//Testar se o resultado foi de sucesso\r",
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    if (pm.expect(pm.response.code).to.be.oneOf([201, 200, 202])){\r",
+											"    console.log(\"Successful GET request\")\r",
+											"}else{\r",
+											"console.log(\"Insuccessful GET request\")\r",
+											"}\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/users?page=2",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								},
+								"description": "Requisição para testar a busca de usuário\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 200\r\n- String OK no corpo do responde\r\n- Tempo de resposta < 2000ms\r\n- Usar variavél de ambiente \r\n- Usar a Query Params"
+							},
+							"response": [
+								{
+									"name": "Busca_Usuarios_sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{uri}}/users?page=2",
+											"host": [
+												"{{uri}}"
+											],
+											"path": [
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Oct 2020 00:29:55 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"4dd-IPv5LdOOb6s5S9E3i59wBCJ1k/0\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=14400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "HIT"
+										},
+										{
+											"key": "Age",
+											"value": "6518"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0603e8d86c0000f748b43fa000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=i%2B0CPVuC2ft%2Fgk%2FE%2BRXwacgpqSjo1IRJIpwrJfFEvX4SVmNUab62pvAReNr7zL7VeEToNFsXcWEsBAMWCPeFgkQ8CYr1nf0yCL4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e8010d3d899f748-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"page\": 2,\n    \"per_page\": 6,\n    \"total\": 12,\n    \"total_pages\": 2,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"email\": \"michael.lawson@reqres.in\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Lawson\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg\"\n        },\n        {\n            \"id\": 8,\n            \"email\": \"lindsay.ferguson@reqres.in\",\n            \"first_name\": \"Lindsay\",\n            \"last_name\": \"Ferguson\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/araa3185/128.jpg\"\n        },\n        {\n            \"id\": 9,\n            \"email\": \"tobias.funke@reqres.in\",\n            \"first_name\": \"Tobias\",\n            \"last_name\": \"Funke\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg\"\n        },\n        {\n            \"id\": 10,\n            \"email\": \"byron.fields@reqres.in\",\n            \"first_name\": \"Byron\",\n            \"last_name\": \"Fields\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/russoedu/128.jpg\"\n        },\n        {\n            \"id\": 11,\n            \"email\": \"george.edwards@reqres.in\",\n            \"first_name\": \"George\",\n            \"last_name\": \"Edwards\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg\"\n        },\n        {\n            \"id\": 12,\n            \"email\": \"rachel.howell@reqres.in\",\n            \"first_name\": \"Rachel\",\n            \"last_name\": \"Howell\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg\"\n        }\n    ],\n    \"ad\": {\n        \"company\": \"StatusCode Weekly\",\n        \"url\": \"http://statuscode.org/\",\n        \"text\": \"A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.\"\n    }\n}"
+								},
+								{
+									"name": "Busca_Usuarios",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://reqres.in/api/users?page=2",
+											"protocol": "https",
+											"host": [
+												"reqres",
+												"in"
+											],
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 25 Oct 2020 17:30:21 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"4dd-IPv5LdOOb6s5S9E3i59wBCJ1k/0\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=14400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "HIT"
+										},
+										{
+											"key": "Age",
+											"value": "3007"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "060268b9f30000f20b47922000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=gZnWLMZMLRFvvK4yDD7Kzw9HTHnJKHibUB4bcenglKkhHmEuZJlHeLJEMnF8BQFgsNFFsN4s%2FWIGpLaMoI7dTajdVYtiQ%2F%2BDs0k%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e7daa3cbef3f20b-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"page\": 2,\n    \"per_page\": 6,\n    \"total\": 12,\n    \"total_pages\": 2,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"email\": \"michael.lawson@reqres.in\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Lawson\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg\"\n        },\n        {\n            \"id\": 8,\n            \"email\": \"lindsay.ferguson@reqres.in\",\n            \"first_name\": \"Lindsay\",\n            \"last_name\": \"Ferguson\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/araa3185/128.jpg\"\n        },\n        {\n            \"id\": 9,\n            \"email\": \"tobias.funke@reqres.in\",\n            \"first_name\": \"Tobias\",\n            \"last_name\": \"Funke\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg\"\n        },\n        {\n            \"id\": 10,\n            \"email\": \"byron.fields@reqres.in\",\n            \"first_name\": \"Byron\",\n            \"last_name\": \"Fields\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/russoedu/128.jpg\"\n        },\n        {\n            \"id\": 11,\n            \"email\": \"george.edwards@reqres.in\",\n            \"first_name\": \"George\",\n            \"last_name\": \"Edwards\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg\"\n        },\n        {\n            \"id\": 12,\n            \"email\": \"rachel.howell@reqres.in\",\n            \"first_name\": \"Rachel\",\n            \"last_name\": \"Howell\",\n            \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg\"\n        }\n    ],\n    \"ad\": {\n        \"company\": \"StatusCode Weekly\",\n        \"url\": \"http://statuscode.org/\",\n        \"text\": \"A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Busca_Usuario_Especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/users/{{id_usuario_busca}}",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										"{{id_usuario_busca}}"
+									]
+								},
+								"description": "Requisição para buscar um usuário específico.\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 200\r\n- String OK no corpo do responde\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente\r\n- Usar variavel da coleção"
+							},
+							"response": [
+								{
+									"name": "Busca_Usuario_Especifico",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://reqres.in/api/users/12",
+											"protocol": "https",
+											"host": [
+												"reqres",
+												"in"
+											],
+											"path": [
+												"api",
+												"users",
+												"12"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 25 Oct 2020 17:30:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"179-enhNT7i5zfhUwFSAYW0o15vB1s8\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=14400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "REVALIDATED"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "060268e1e00000f20b831e7000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=Mi1lkIxR6Um74HVADcWLYKHfjiuUkMxTzW3kFGjOghI9XJWmxU92HvRisFoKgS63vDUkH8Hc5oUIghLDddOhVut1pR%2FuBmi6o3o%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e7daa7c9817f20b-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 12,\n        \"email\": \"rachel.howell@reqres.in\",\n        \"first_name\": \"Rachel\",\n        \"last_name\": \"Howell\",\n        \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg\"\n    },\n    \"ad\": {\n        \"company\": \"StatusCode Weekly\",\n        \"url\": \"http://statuscode.org/\",\n        \"text\": \"A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Buscar_Usuário_Path",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/users/:id",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "7"
+										}
+									]
+								},
+								"description": "Requsição para buscar usuários específicos através dos parametros de Path\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 200\r\n- String OK no corpo do responde\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente"
+							},
+							"response": [
+								{
+									"name": "Buscar_Usuário_Path",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://reqres.in/api/users/:id",
+											"protocol": "https",
+											"host": [
+												"reqres",
+												"in"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "7"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 25 Oct 2020 17:31:56 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"177-fGSlW9wHa6mgvsf6tGsV8zWQl+w\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=14400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "MISS"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "06026a2c9b0000f20b84901000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=RMremdxvaY8K%2FKazz7GYIvbpsT7kgf33O4QZHvu3Wj%2FmzNbDqlMiS4zCm%2FjCqog3ksO5d0v0ywzD7tEGbvXt6fz%2BodFdVx2%2FKuI%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e7dac8dce20f20b-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 7,\n        \"email\": \"michael.lawson@reqres.in\",\n        \"first_name\": \"Michael\",\n        \"last_name\": \"Lawson\",\n        \"avatar\": \"https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg\"\n    },\n    \"ad\": {\n        \"company\": \"StatusCode Weekly\",\n        \"url\": \"http://statuscode.org/\",\n        \"text\": \"A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Busca_Sem_Sucesso",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b6a35dc2-dc62-4232-91f3-781114d4e307",
+										"exec": [
+											"//Testar retorno de usuário inexistente\r",
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    if (pm.expect(pm.response.code).to.be.oneOf([404])){\r",
+											"    console.log(\"Usuário não encontrado\")\r",
+											"}else{\r",
+											"console.log(\"Usuário existe\")\r",
+											"}\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/users/74855",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										"74855"
+									]
+								},
+								"description": "Request que valida o retorno da busca por usuários sem sucesso.\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 404\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente\r\n- Enviar validações para o console"
+							},
+							"response": [
+								{
+									"name": "Busca_Sem_Sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{uri}}/users/255",
+											"host": [
+												"{{uri}}"
+											],
+											"path": [
+												"users",
+												"255"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Oct 2020 00:33:24 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=14400"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "HIT"
+										},
+										{
+											"key": "Age",
+											"value": "5"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0603ec09120000f74898b43000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=5Mfhbkj2Koh88IKFK9oC0ZVdo3JxX55a1mAAuopvdw6RLv1xUla1CMMNL7St%2FiqxDYTvGF8RXR91g7oNEs6t5XV4U0UIcMED3tw%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e8015ee8d50f748-GRU"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					],
+					"description": "Testes de busca",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Atualizar Usuário",
+					"item": [
+						{
+							"name": "Atualizar_Usuario_Put",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Mariazinha\",\r\n    \"job\": \"Engenheiro de Qualidade\"\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/users/{{id_usuario_busca}}",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										"{{id_usuario_busca}}"
+									]
+								},
+								"description": "Requisição para atualziar usuário utilizando PUT\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 200\r\n- String OK no corpo do responde\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente\r\n- Usar variavel da coleção"
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar_Usuario_Patch",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3f33e513-eae3-45ea-9b8e-33f6bf2c56c4",
+										"exec": [
+											"pm.variables.set(\"id_update\", \"5\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uri}}/users/{{id_update}}",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										"{{id_update}}"
+									]
+								},
+								"description": "Requisição para atualizar usuário usando Patch\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 200\r\n- String OK no corpo do responde\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente\r\n- Usar variavel da local\r\n- Rodar os Scripts de Pré-request"
+							},
+							"response": [
+								{
+									"name": "Atualizar_Usuario_Patch",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uri}}/users/{{id_update}}",
+											"host": [
+												"{{uri}}"
+											],
+											"path": [
+												"users",
+												"{{id_update}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Oct 2020 01:26:23 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"50-yXfK6esotwvvmiHfblkdplIx88Y\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "06041c89810000f1ee3aa9d000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=0AXGsXE95JJMYAwN3ozmkVH0QuRtMnxx5WdazMm%2FuSFSy5fz3BsQCndpZpnMZzPBEAS1T52GyA4IJGl8j29OQ7Iiyo%2FMhf%2BtQ6c%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e806388c9d3f1ee-GRU"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\",\n    \"updatedAt\": \"2020-10-26T01:26:23.146Z\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Testes de atualização de usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0ed1a7aa-28d5-4afd-93fc-da5ded266b4c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b42b7c88-35f4-48c4-a30d-8dddbc225e46",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Deletar Usuários",
+					"item": [
+						{
+							"name": "Deletar_Usuario",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5c1d51e8-c31b-498a-b5ff-eb084441455e",
+										"exec": [
+											"pm.variables.set(\"id_delete\", \"1\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{uri}}/users/{{id_delete}}",
+									"host": [
+										"{{uri}}"
+									],
+									"path": [
+										"users",
+										"{{id_delete}}"
+									]
+								},
+								"description": "Requsição para deletar usuário\r\n\r\nResultados Esperados:\r\n\r\n- Response code: 204\r\n- Tempo de resposta < 2000ms\r\n- Usar variavel de ambiente\r\n- Usar variavel da local"
+							},
+							"response": [
+								{
+									"name": "Deletar_Usuario",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://reqres.in/api/users/12",
+											"protocol": "https",
+											"host": [
+												"reqres",
+												"in"
+											],
+											"path": [
+												"api",
+												"users",
+												"12"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 25 Oct 2020 17:31:20 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0602699f320000f20b84a1e000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=7K4SgMcnVwgW7hAo%2FFOtDnBIajieUnwlRIQgENk9JM5HeeHaf2vh4tsH%2B56QTOoD%2FewtCFsp9KF8Q4WHUOk499WnVXhWN4WlVZ0%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e7dabab8c4af20b-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Deletar_Usuario",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{uri}}/users/{{id_delete}}",
+											"host": [
+												"{{uri}}"
+											],
+											"path": [
+												"users",
+												"{{id_delete}}"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Oct 2020 01:18:13 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Etag",
+											"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+										},
+										{
+											"key": "Via",
+											"value": "1.1 vegur"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "cf-request-id",
+											"value": "0604150fd50000d000242f8000000001"
+										},
+										{
+											"key": "Expect-CT",
+											"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=mN69dOOOLlsvoEvQhRihs6eXic05tO2HgzE4Pln9Hkll%2Fh9FsYj5CD%2F1dJ002%2B0AkICUfQpFj3Crlh6Nekztfi8O4JmfyASzDJw%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "5e805792ea3dd000-GRU"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"description": "Testes de exclusão de usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dd44f057-07cc-4294-a61e-6e29496394cb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "65fd229a-ee76-4df1-ab67-4efcf3c4f46c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Suite de testes para o recurso de Usuário",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f9311978-a81d-4a0b-8fd0-0462bb0084e0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "74d462f5-55f5-43bf-896f-985f0d0d43f4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Recurso_Login",
+			"item": [],
+			"description": "Suite de testes para o recurso de Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2fae290a-1631-49aa-8758-b3b5e33f54a6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40aa35a3-03e8-4592-9b27-6ffde6ea04be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Recurso_Registro",
+			"item": [],
+			"description": "Suite de testes para o recurso de Registro",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e82ede93-be7e-4793-82ce-b5cb8b96a87b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "99d6b8b2-4503-4291-bf1f-adee39d94079",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5e527533-f9fe-4f52-bf23-aa5db05b84be",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(pm.info.requestName)"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bf662b54-3161-448a-9f4a-3ec7a0719271",
+				"type": "text/javascript",
+				"exec": [
+					"//Testar o tempo de execução <2000ms",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8c755660-8188-4700-b754-53ee6fae99a5",
+			"key": "{{uri}}",
+			"value": "https://reqres.in/api"
+		},
+		{
+			"id": "9a97091d-28d4-4ad5-9816-e427de1ee0e4",
+			"key": "id_usuario_busca",
+			"value": "5"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
